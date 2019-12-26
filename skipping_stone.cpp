@@ -22,6 +22,7 @@ std::vector<std::vector<int>> cost_matrix{
 int main() {
     
         
+        
         std::vector<field> initial_solution{
             {{2,0},3},
             {{2,1},3},
