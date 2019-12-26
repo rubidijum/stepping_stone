@@ -10,8 +10,8 @@ std::vector<field> stepping_stone_method(std::vector<field> initial_solution, st
             auto row{cost_matrix.size()}, col{cost_matrix.at(0).size()};
     
             // Free fields initialization
-            for(int i = 0; i < row; i++){
-                for(int j = 0; j < col; j++){
+            for(unsigned i = 0; i < row; i++){
+                for(unsigned j = 0; j < col; j++){
                     std::pair<unsigned,unsigned> needle{i,j};
                     auto iter = std::find_if(initial_solution.cbegin(), initial_solution.cend(), [=] (field f) {return f.first == needle; });        
                     if(iter == initial_solution.cend()){
@@ -41,8 +41,6 @@ std::vector<field> stepping_stone_method(std::vector<field> initial_solution, st
             if((*min).second >= 0){
                 std::cout << "Optimal solution found" << std::endl;
                 return initial_solution;
-                //solution_found = true;
-                //break;
             }
         
             // Find all paths that have most negative cost
@@ -61,14 +59,13 @@ std::vector<field> stepping_stone_method(std::vector<field> initial_solution, st
                     chosen_path = m;
                 }
             }           
-            
-            for(auto cp : chosen_path.first)
-                std::cout << cp.first << "," << cp.second << std::endl;
-            
+
             // Update solution
             place_stone(chosen_path.first, &initial_solution, max_stone);
             
         }
+        //TODO: safety
+        return result;
     }
  
 // Find closed path for given field
@@ -156,7 +153,7 @@ int calculate_path_cost(std::vector<field_coord> path, std::vector<std::vector<u
 int find_stone(std::vector<field_coord> path, std::vector<field> initial){
     char sign = 1;
     std::vector<field> costs;
-    int minimum = 100000;
+    unsigned minimum = 100000;
     for(auto p : path){
         if(sign == -1){
             // find value of this field

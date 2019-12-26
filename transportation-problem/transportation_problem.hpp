@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __TRANSPORTATION_PROBLEM_HPP
+#define __TRANSPORTATION_PROBLEM_HPP
 
 #include <vector>
 #include <tuple>
@@ -50,3 +51,4 @@ unsigned fogels_method(  const std::vector<std::vector<unsigned>> &cost_given
                 , const std::vector<unsigned> &demand_given
                 , std::vector<field> *solution);
 
+#endif

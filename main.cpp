@@ -2,7 +2,7 @@
 #include <vector>
 #include <numeric>
 
-#include "transportation_problem.hpp"
+#include "./transportation-problem/transportation_problem.hpp"
 
 int main() {
     unsigned row;
