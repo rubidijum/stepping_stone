@@ -170,7 +170,6 @@ int find_stone(std::vector<field_coord> path, std::vector<field> initial){
  
 // Update weights
 void place_stone(std::vector<field_coord> path, std::vector<field>* initial, int stone){
-    std::cout << "Placing stone " << stone << " on " << path[0].first << "," << path[0].second << std::endl;
     char sign = 1;
     for(auto p : path){
         auto init = std::find_if(initial->begin(), initial->end(), [p] (field f) { return f.first == p; } );
